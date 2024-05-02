@@ -24,7 +24,7 @@ public class AudioSystem : MonoBehaviour
     }
     [SerializeField]
     private GameObject audioSourceObject;
-    public int maxSimultaneousSounds = 5; // Número máximo de sons que podem ser reproduzidos simultaneamente
+    public int maxSimultaneousSounds = 5; // Maximum number of sounds that can be played simultaneously
     private AudioSource[] audioSources;
 
     void Awake()
@@ -39,7 +39,7 @@ public class AudioSystem : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Inicializa os AudioSource
+        // Initialize the AudioSource
         if(audioSources == null) {
             audioSources = new AudioSource[maxSimultaneousSounds];
             for (int i = 0; i < maxSimultaneousSounds; i++)
@@ -58,7 +58,7 @@ public class AudioSystem : MonoBehaviour
 
     public void PlaySound(AudioClip clip, float volume, bool isLoop = false)
     {
-        // Encontra um AudioSource disponível para reproduzir o som
+        // Find an available AudioSource to play the sound
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)
@@ -82,3 +82,6 @@ public class AudioSystem : MonoBehaviour
         audioSources = null;
     }
 }
+
+// To call the function in another script
+// AudioSystem.Instance.PlaySound(AudioClip clip, float volume, bool isLoop = false or true)
