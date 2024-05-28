@@ -1,4 +1,4 @@
-# MasterAudioSystem
+# Master Audio System
 Script designed to organize the audio clips that will be played in a Unity game.
 
 ### **How it works:**
